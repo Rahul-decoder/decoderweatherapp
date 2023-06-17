@@ -21,17 +21,18 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-            resizeToAvoidBottomInset: false,
-            backgroundColor: Color.fromARGB(255, 243, 239, 228),
-            appBar: AppBar(
-              title: const Center(
-                child: Text(
-                  "Weather App",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Color.fromARGB(255, 243, 239, 228),
+          appBar: AppBar(
+            title: const Center(
+              child: Text(
+                "Weather App",
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
-            body: Container(
+          ),
+          body: SingleChildScrollView(
+            child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
@@ -83,373 +84,319 @@ class _MyAppState extends State<MyApp> {
                     SizedBox(
                       height: 10,
                     ),
-                    SingleChildScrollView(
-                      child: Container(
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 110,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 201, 188, 152),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Expanded(
-                                  child: Container(
-                                    height: 110,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(255, 201, 188, 152),
-                                        borderRadius:
-                                            BorderRadius.circular(12)),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          "Current Temperature",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                        Text(
-                                          "${Weatherhelper?.main?.temp} °C",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                Text(
+                                  "Current Temperature",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.w700),
                                 ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      height: 110,
-                                      decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              255, 201, 188, 152),
-                                          borderRadius:
-                                              BorderRadius.circular(12)),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Text(
-                                            "Minimum Temperature",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700),
-                                          ),
-                                          Text(
-                                            "${Weatherhelper?.main?.tempMin} °C",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    height: 110,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(255, 201, 188, 152),
-                                        borderRadius:
-                                            BorderRadius.circular(12)),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          "Maximum Temperature",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                        Text(
-                                          "${Weatherhelper?.main?.tempMax} °C",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                Text(
+                                  "${Weatherhelper?.main?.temp} °C",
+                                  style: TextStyle(fontWeight: FontWeight.w700),
                                 ),
                               ],
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    height: 110,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(255, 201, 188, 152),
-                                        borderRadius:
-                                            BorderRadius.circular(12)),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          "Pressure",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                        Text(
-                                          "${Weatherhelper?.main?.pressure}",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      height: 110,
-                                      decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              255, 201, 188, 152),
-                                          borderRadius:
-                                              BorderRadius.circular(12)),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Text(
-                                            "Humidity",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700),
-                                          ),
-                                          Text(
-                                            "${Weatherhelper?.main?.humidity}",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    height: 110,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(255, 201, 188, 152),
-                                        borderRadius:
-                                            BorderRadius.circular(12)),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          "Sea Level",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                        Text(
-                                          "${Weatherhelper?.main?.seaLevel}",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    height: 110,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(255, 201, 188, 152),
-                                        borderRadius:
-                                            BorderRadius.circular(12)),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          "Ground Level",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                        Text(
-                                          "${Weatherhelper?.main?.grndLevel}",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      height: 110,
-                                      decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              255, 201, 188, 152),
-                                          borderRadius:
-                                              BorderRadius.circular(12)),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Text(
-                                            "Wind Speed",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700),
-                                          ),
-                                          Text(
-                                            "${Weatherhelper?.wind?.speed}",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    height: 110,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(255, 201, 188, 152),
-                                        borderRadius:
-                                            BorderRadius.circular(12)),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          "Visibility",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                        Text(
-                                          "${Weatherhelper?.visibility}",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    height: 110,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(255, 201, 188, 152),
-                                        borderRadius:
-                                            BorderRadius.circular(12)),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          "Weather Prediction",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                        Text(
-                                          "${Weatherhelper?.weather?.elementAt(0).description}",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      height: 110,
-                                      decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              255, 201, 188, 152),
-                                          borderRadius:
-                                              BorderRadius.circular(12)),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Text(
-                                            "Weather Condition",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700),
-                                          ),
-                                          Text(
-                                            "${Weatherhelper?.weather?.elementAt(0).main}",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    height: 110,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(255, 201, 188, 152),
-                                        borderRadius:
-                                            BorderRadius.circular(12)),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          "Place",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                        Text(
-                                          "${Weatherhelper?.name}",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
+                          ),
                         ),
-                      ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 110,
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 201, 188, 152),
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Minimum Temperature",
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w700),
+                                  ),
+                                  Text(
+                                    "${Weatherhelper?.main?.tempMin} °C",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w700),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            height: 110,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 201, 188, 152),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  "Maximum Temperature",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  "${Weatherhelper?.main?.tempMax} °C",
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 110,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 201, 188, 152),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  "Pressure",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  "${Weatherhelper?.main?.pressure}",
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 110,
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 201, 188, 152),
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Humidity",
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w700),
+                                  ),
+                                  Text(
+                                    "${Weatherhelper?.main?.humidity}",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w700),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            height: 110,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 201, 188, 152),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  "Sea Level",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  "${Weatherhelper?.main?.seaLevel}",
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 110,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 201, 188, 152),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  "Ground Level",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  "${Weatherhelper?.main?.grndLevel}",
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 110,
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 201, 188, 152),
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Wind Speed",
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w700),
+                                  ),
+                                  Text(
+                                    "${Weatherhelper?.wind?.speed}",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w700),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            height: 110,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 201, 188, 152),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  "Visibility",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  "${Weatherhelper?.visibility}",
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 110,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 201, 188, 152),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  "Weather Prediction",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  "${Weatherhelper?.weather?.elementAt(0).description}",
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 110,
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 201, 188, 152),
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Weather Condition",
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w700),
+                                  ),
+                                  Text(
+                                    "${Weatherhelper?.weather?.elementAt(0).main}",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w700),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            height: 110,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 201, 188, 152),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  "Place",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  "${Weatherhelper?.name}",
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
-            )));
+            ),
+          ),
+        ));
   }
 }
